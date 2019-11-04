@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Diagnóstico para Recolocação</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/sltools.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Cinzel|Handlee|Italianno|Old+Standard+TT|Poiret+One|Quattrocento" rel="stylesheet">
+  
+  <style>
+*{
+	margin:0;
+	padding:0;
+}
+#suadiv{
+	top:0;
+	left:0;
+	background-color:#1e8eb8;
+	width:100%;
+	 height:100%;
+	
+	filter: alpha(opacity=65);
+	padding: 10px;
+	margin:0,0,0;
+}
+</style> 
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js" ></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $("input").blur(function(){
+     if($(this).val() == "")
+         {
+             $(this).css({"border" : "1px solid #F00", "padding": "2px"});
+         }
+    });
+    $("#bigbutton").click(function(){
+     var cont = 0;
+     var campos = "Campos: ";
+     $("#cadastro input").each(function(){
+         if($(this).val() == "")
+             {
+                 $(this).css({"border" : "1px solid #F00", "padding": "2px"});
+                 cont++;
+             }
+        });
+     if(cont == 0)
+         {
+             $("#cadastro").submit();
+         }
+     else {
+     		alert("Existem campos não preenchidos.");
+			toTop();
+
+     }    
+    });
+});
+</script> 
+<script>
+
+function toTop(){
+$('html, body').animate({
+scrollTop: 0
+}, 1000, 'linear');
+}
+</script>
+</head>
+<body>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+ 	<script type="text/javascript" src="js/materialize.min.js"></script> 
+
+ 	<script>
+ 		$(document).ready(function() {
+    	$('select').material_select();
+  		}); 
+ 	</script>
+  
+  <nav class="light-blue lighten-1">
+    <div class="nav-wrapper">
+      <a href="http://www.sidneileitao.com.br/" style="color:white;font-size:32px;margin:200px;font-family: Poiret One,serif">Sidnei Leitão - Coaching e Consultoria</a>'
+      <ul id="nav-mobile" class="right hide-on-med-and-down" style="letter-spacing:3px;font-size:18px;">
+        <li><a href="http://www.sidneileitao.com.br/sobre/">: sobre</a></li>
+        <li><a href="http://www.sidneileitao.com.br/now/">: agora</a></li>
+        <li><a href="http://www.sidneileitao.com.br/">: trabalhos</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  
+  
+  <div class="section no-pad-bot" id="index-banner">
+    
+    <div class="container">
+    	<br>
+     	<p style="color:#00bfa5;font-family: Raleway;font-weight:bold;font-size:48px;">Diagnóstico para Recolocação</p>
+      <p style="color:#1de9b6;font-family: Raleway;font-size:32px;">Uma ferramenta para identificar oportunidades</p>
+		<br>   
+    </div>
+  </div>
+
+  <div class="container" style="font-family: Raleway, sans-serif;">
+	<div style="line-height:150%;font-size:18px;width: 800px;">
+   <p style=" margin: 10px 0 10px 0;">Eu desenvolvi essa ferramenta para ajudá-lo com a sua recolocação profissional.</p>
+
+	<p style=" margin: 10px 0 10px 0;">Ela identifica como você pode encontrar mais vagas e aumentar o envio de currículos, mas
+	com foco e objetividade, aumentando assim, as suas chances de ser recrutado para mais entrevistas.</p>
+
+	<p style=" margin: 10px 0 10px 0;">Caso tenha alguma dúvida sobre o preenchimento ou sobre o resultado, envie uma mensagem
+	para <a style="color: blue;"href="mailto:contato@sidneileitao.com.br">contato@sidneileitao.com.br</a>. Eu ficarei muito feliz em responder.</p>
+
+		<p style=" margin: 10px 0 10px 0;">Assim que você clicar no botão "Gerar Diagnóstico", o relatório será gerado e exibido na tela.</p><p style="margin:10px 0 10px 0;">Lembrando que as sugestões/recomendações apresentadas são gerais, e foram geradas a partir das suas respostas.</p>
+
+    <p style="margin:10px 0 10px 0;">Caso tenha interesse em fazer um trabalho mais particular e aprofundado , envie um e-mail para <a style="color: blue;" href="mailto:contato@sidneileitao.com.br">contato@sidneileitao.com.br</a>.</p>
+   </div>   
+   <br>
+  <div class="row">
+    <form class="col s12" id="cadastro" name="cadastro" method="post" action="grava_diag.php" >
+     
+      <div class="row">
+        <div class="input-field col s6">
+        	    <input name="nome" id="nome" type="text" class="validate"> 
+        	    <label style="font-size:18px;" for="nome">Nome</label>          
+        </div>
+      </div>
+  
+      <div class="row">
+        <div class="input-field col s6">
+          <input name="email" id="email" type="email" class="validate">
+          <label style="font-size:18px;" for="email" data-error="wrong" data-success="right">e-mail</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s6">
+          	<input name="meses_busca" id="meses_busca" type="text" class="validate" maxlength="2" size="2">
+          	<label style="font-size:18px;" for="meses_busca">Está buscando há quantos meses?</label>
+          </div>
+      </div> 
+
+      <div class="row">   
+        <div class="input-field col s6">
+          	<input name="qtde_curriculos" id="qtde_curriculos" type="text" class="validate" maxlength="4" size="4">
+          	<label style="font-size:18px;" for="qtde_curriculos">Quantos currículos enviou?</label>
+        </div>
+      </div>
+ 
+ 		<div class="row">   
+        <div class="input-field col s6">
+          	<input name="qtde_entrevistas" id="qtde_entrevistas" type="text" class="validate" maxlength="2" size="2">
+          	<label style="font-size:18px;" for="qtde_curriculos">De quantas entrevistas participou?</label>
+        </div>
+      </div>        
+
+   	<div class="row">
+      	<div class="input-field col s6">
+    			<select name="cargo" id="cargo">
+      		<option value="" disabled selected>Selecione uma opção</option>
+     	 		<option value="1">auxiliar ou ajudante</option>
+     	 		<option value="2">estagiário</option>				      	
+      		<option value="3">técnico</option>
+      		<option value="4">assistente</option>
+      		<option value="5">analista júnior</option>
+      		<option value="6">analista pleno</option>
+      		<option value="7">analista sênior, consultor ou especialista</option>
+      		<option value="8">líder</option>
+      		<option value="9">encarregado</option>
+      		<option value="10">supervisor ou coordenador</option>
+      		<option value="11">gerente</option>
+    			</select>
+    			<label style="font-size:18px;" >Para qual nível você está buscando vagas?</label>
+  			</div>
+  		</div>
+  		
+		<div class="row">      
+			<div class="input-field col s6">
+    			<input name="anos_experiencia" id="anos_experiencia" type="text" class="validate" maxlength="2" size="2">
+          	<label style="font-size:16px;" for="anos_experiencia">Quantos anos de experiência possui nesse cargo/função?</label>
+  			</div> 
+  		</div>      
+      
+		<div class="row" >  
+
+			<div class="input-field col s6" >
+    			<select name="perguntas_entrevista" id="perguntas_entrevista" >
+      		<option value="" disabled selected>Selecione uma opção</option>
+     	 		<option value="1">técnicas, ligadas ao cargo e suas respectivas funções</option>
+      		<option value="2">pessoais (hábitos, preferências) e/ou sobre sua forma de lidar com as situações</option>
+      		<option value="3">sobre o mercado, a empresa e a área da vaga</option>
+      		</select>
+    			<label style="font-size:16px;">Nas entrevistas, as perguntas eram de que tipo?</label>
+  			</div> 
+  		</div>
+ 		<div class="row">      
+  			<div class="input-field col s6">
+    			<select name="respostas_entrevistas" id="respostas_entrevistas">
+      		<option value="" disabled selected>Selecione uma opção</option>
+     	 		<option value="1">Todas as perguntas</option>
+      		<option value="2">A maioria das perguntas</option>
+      		<option value="3">Algumas perguntas (metade ou menos)</option>
+      		</select>
+    			<label style="font-size:18px;">Nas entrevistas você respondeu:</label>
+  			</div> 
+      </div>
+      
+		<div class="row">   
+			<div class="input-field col s6">
+    			<select name="canais_vagas" id="canais_vagas">
+      		<option value="" disabled selected>Selecione uma opção</option>
+     	 		<option value="1">Sites de recrutamento (vagas.com, catho, outros)</option>
+      		<option value="2">LinkedIn</option>
+      		<option value="3">Colunas especializadas sobre carreira e emprego</option>
+      		<option value="4">Contatos pessoais e profissionais</option>
+      		</select>
+    			<label style="font-size:18px;">Em qual canal você encontrou mais vagas?</label>
+  			</div>
+  		</div>
+  		      
+      <p style="font-size:18px;color:#9e9e9e;">Das vagas que você encontrou até o momento, informe quantas delas eram:</p>
+     
+      <div class="row">   
+			<div class="input-field col s4">
+			Em empresas do mesmo mercado de atuação do seu último empregador.
+    			<select name="perc_mesmo_empregador" id="perc_mesmo_empregador">
+      		<option value="" disabled selected>Selecione uma opção</option>
+     	 		<option value="1">Todas</option>
+      		<option value="2">A maioria</option>
+      		<option value="3">Algumas (metade ou menos)</option>
+      		</select>
+    			<label style="font-size:14px;"></label>
+  			</div> 
+  			
+  			<div class="input-field col s4">
+  				Na mesma área em que você atuou no último emprego.
+    			<select name="perc_mesma_area" id="perc_mesma_area">
+    			<option value="" disabled selected>Selecione uma opção</option>
+      		<option value="1">Todas</option>
+      		<option value="2">A maioria</option>
+      		<option value="3">Algumas (metade ou menos)</option>
+      		</select>
+    			<label style="font-size:14px;"></label>
+  			</div> 
+  			
+  			<div class="input-field col s4">
+  				Para o mesmo cargo/função em que você atuou no último emprego.
+    			<select name="perc_mesmo_cargo" id="perc_mesmo_cargo">
+            <option value="" disabled selected>Selecione uma opção</option>
+      		<option value="1">Todas</option>
+      		<option value="2">A maioria</option>
+      		<option value="3">Algumas (metade ou menos)</option>
+      		</select>
+    			<label style="font-size:14px;"></label>
+  			</div> 
+  					   
+      </div>
+		
+		<p style="font-size:18px;color:#9e9e9e;">Das qualificações mais comumente exigidas para as vagas (aquelas que constam nas descrições), você possui:</p>    
+      <div class="row"> 
+
+     	<div class="input-field col s6">
+
+    			<select name="perc_qualificacoes" id="perc_qualificacoes" style="color:black;">
+    			<option value="" disabled selected>Selecione uma opção</option>
+      		<option value="1">Todas</option>
+      		<option value="2">A maioria</option>
+      		<option value="3">Algumas (metade ou menos)</option>
+      		</select>
+    			<label style="font-size:14px;"></label>
+  			</div> 
+		</div>   
+		
+		<p style="font-size:18px;color:#9e9e9e;">Do total de currículos enviados, quantos foram para vagas informadas por alguém da sua rede de contatos (pessoal ou profissional)? </p>
+      <div class="row">      
+      	<div class="input-field col s6">
+
+  			<select name="perc_vagas_contatos" id="perc_vagas_contatos" style="color:black;" >
+  				<option value="" disabled selected>Selecione uma opção</option>
+      		<option value="1">Todos</option>
+      		<option value="2">A maioria</option>
+      		<option value="3">Alguns (metade ou menos)</option>
+      		</select>
+    			<label style="font-size:14px;"></label>
+  			</div> 
+		</div>   
+
+      <p style="font-size:18px;color:#9e9e9e;">Do total de vagas para as quais você se candidatou, em quantas você foi recomendado/indicado por alguém da sua rede de contatos (pessoal ou profissional)?
+.</p>
+
+       <div class="row">      
+      	<div class="input-field col s6">
+
+    			<select name="perc_vagas_indicadas" id="perc_vagas_indicadas">
+    		 	<option value="" disabled selected>Selecione uma opção</option>
+      		<option value="1">Todas</option>
+      		<option value="2">A maioria</option>
+      		<option value="3">Algumas (metade ou menos)</option>
+      		</select>
+    			<label style="font-size:14px;"></label>
+  			</div> 
+		</div>      
+	   <input name="cadastrar" id="bigbutton" type="bigbutton" value="Gerar Diagnóstico" /> 
+    </form>
+  </div>
+    
+  </div>
+
+  <footer class="page-footer teal darken-1">
+    <div style="font-size: 18px;" class="container">
+      <div class="row">
+        <div class="col l12 s12">
+          <h5 class="white-text">Sobre</h5>
+          <p class="grey-text text-lighten-4">Sidnei Leitão trabalha com coaching e consultoria de carreiras.</p>
+			<br>			
+			 <p class="grey-text text-lighten-4">Para mais informações, envie e-mail para <a style="color: blue;" href="mailto:contato@sidneileitao.com.br">contato@sidneileitao.com.br</a></p>
+
+        </div>
+        
+        
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+    <p>Copyright © 2017 Sidnei Leitão. All rights reserved. </p>
+      </div>
+    </div>
+  </footer>
+
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+  
+  </body>
+</html>
